@@ -20,7 +20,6 @@ public class PlayerMov : MonoBehaviour
 
 
     private CharacterController m_control;
-    private Transform m_cameraTransform;
 
     private Vector3 m_moveDirection;
     private Vector3 m_camRotation;
@@ -42,18 +41,9 @@ public class PlayerMov : MonoBehaviour
     private void Start()
     {
         m_control = GetComponent<CharacterController>();
-        //m_photonView = GetComponent<PhotonView>();
-
-        //// 自分が生成したプレイヤーのカメラだけを有効にする
-        //if (m_photonView.IsMine)
-        //{
-        //    m_mainCamera.gameObject.SetActive(true);
-        //    m_cameraTransform = m_mainCamera.transform;
-        //}
-        //else
-        //{
-        //    m_mainCamera.gameObject.SetActive(false);
-        //}
+        // マウスカーソルを消す（実行中は ESC キーを押すとマウスカーソルが表示される）
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
@@ -61,10 +51,6 @@ public class PlayerMov : MonoBehaviour
         Rotate();
         Move();
     }
-
-    /// <summary>
-    /// Controls camera rotation oriented by mouse position
-    /// </summary>
     private void Rotate()
     {
         transform.Rotate(Vector3.up * sensitivity * Time.deltaTime * Input.GetAxis("Mouse X"));
@@ -72,67 +58,15 @@ public class PlayerMov : MonoBehaviour
         m_camRotation.x -= Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
         m_camRotation.x = Mathf.Clamp(m_camRotation.x, minAngle, maxAngle);
     }
-
-    /// <summary>
-    /// 照準を操作する
-    /// 照準にダメージを与えられる対象がいる場合に照準の色を変え、その対象を m_target に保存する
-    /// </summary>
-    //void Aim()
-    //{
-    //    Ray ray = m_mainCamera.ScreenPointToRay(m_crosshair.rectTransform.position);
-    //    RaycastHit hit;
-
-    //    if (Physics.Raycast(ray, out hit, m_shootRange, m_shootingLayer))
-    //    {
-    //        //m_target = hit.collider.GetComponent<Damageable>();
-
-    //        //if (m_target)
-    //        //{
-    //        //    m_crosshair.color = m_onTarget;
-    //        //}
-    //        //else
-    //        //{
-    //        //    m_crosshair.color = m_noTarget;
-    //        //}
-    //    }
-    //    else
-    //    {
-    //        //m_target = null;
-    //        m_crosshair.color = m_noTarget;
-    //    }
-    //}
-
-    /// <summary>
-    /// Controls movement with CharacterController
-    /// </summary>
     private void Move()
     {
         if (m_control.isGrounded)
         {
             m_moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             m_moveDirection = transform.TransformDirection(m_moveDirection);
-
-            if (Input.GetButtonDown("Jump"))
-            {
-                m_moveDirection.y = jumpSpeed;
-            }
         }
 
         m_moveDirection.y -= gravity * Time.deltaTime;
         m_control.Move(m_moveDirection * speed * Time.deltaTime);
     }
-
-    /// <summary>
-    /// 敵を撃つ
-    /// </summary>
-    //private void Shoot()
-    //{
-    //    if (Input.GetButtonDown("Fire1"))
-    //    {
-    //        //if (m_target)
-    //        //{
-    //        //    m_target.Damage(PhotonNetwork.LocalPlayer.ActorNumber, 10);
-    //        //}
-    //    }
-    //}
 }
