@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Box
   - Door
+  - Box_1
+  - Box_2
+  - Box_3
+  - Box_4
+  - Box_5
   layers:
   - Default
   - TransparentFX

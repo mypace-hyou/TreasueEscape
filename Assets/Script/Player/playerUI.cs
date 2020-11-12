@@ -3,11 +3,13 @@ using UnityEngine.UI;
 
 public class playerUI : MonoBehaviour
 {
+    public GameObject[] test;
     [SerializeField] GameObject Player_mov;
     [SerializeField] int hit;
     [SerializeField] private bool doorUI;
-    [SerializeField] private bool boxUI, boxOC;
-    public GameObject TextUI;
+    [SerializeField] public bool boxUI, boxOC;
+    [SerializeField] private GameObject ItemBox_tr, ItemBox_fa,ItemUI;
+    public GameObject TextUI,box;
     void Start()
     {
         boxUI = false;
@@ -17,9 +19,22 @@ public class playerUI : MonoBehaviour
     }
     void Update()
     {
-        UI();
+        Box_UI();
     }
-    public void UI()
+    public void inBox_tr()
+    {
+        ItemBox_tr.gameObject.SetActive(true);
+        ItemUI.gameObject.SetActive(true);
+    }
+    public void inBox_fa()
+    {
+        ItemBox_fa.gameObject.SetActive(true);
+    }
+    public void outBox()
+    {
+        ItemBox_tr.gameObject.SetActive(false);
+    }
+    public void Box_UI()
     {
         PlayerMov pm = GetComponent<PlayerMov>();
         if (boxUI && hit == 1 || doorUI && hit == 2)
@@ -65,6 +80,7 @@ public class playerUI : MonoBehaviour
         if (col.gameObject.tag == "Box")
         {
             boxUI = false;
+            outBox();
             hit = 0;
         }
         if (col.gameObject.tag == "Door")
