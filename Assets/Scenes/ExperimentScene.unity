@@ -12425,6 +12425,11 @@ MonoBehaviour:
   boxOC: 0
   ItemBox_tr: {fileID: 1902426370}
   ItemBox_fa: {fileID: 1197724122}
+  ItemUI: {fileID: 1382836201}
+  boxRd: 0
+  boxTe: 0
+  box_Item: {fileID: 604252613}
+  player_Item: {fileID: 1878836807}
   TextUI: {fileID: 1508748259}
   box: {fileID: 0}
 --- !u!136 &1878836811
@@ -12471,7 +12476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f8b742f4a6fb8458afb7656838d93a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxRd: 0
+  te: 0
   boxNo_1: 0
   boxNo_2: 0
   boxNo_3: 0

@@ -9,6 +9,9 @@ public class playerUI : MonoBehaviour
     [SerializeField] private bool doorUI;
     [SerializeField] public bool boxUI, boxOC;
     [SerializeField] private GameObject ItemBox_tr, ItemBox_fa,ItemUI;
+    public float boxRd;
+    public float boxTe;
+    public GameObject box_Item,player_Item;
     public GameObject TextUI,box;
     void Start()
     {
@@ -20,6 +23,10 @@ public class playerUI : MonoBehaviour
     void Update()
     {
         Box_UI();
+        gamemanager GM = box_Item.GetComponent<gamemanager>();
+        boxRd = GM.Ram_Treasure;
+        PlayerControl PC = player_Item.GetComponent<PlayerControl>();
+        boxTe = PC.te;
     }
     public void inBox_tr()
     {
@@ -33,6 +40,7 @@ public class playerUI : MonoBehaviour
     public void outBox()
     {
         ItemBox_tr.gameObject.SetActive(false);
+        ItemBox_fa.gameObject.SetActive(false);
     }
     public void Box_UI()
     {
@@ -68,6 +76,14 @@ public class playerUI : MonoBehaviour
         {
             boxUI = true;
             hit = 1;
+            if (boxRd == boxTe)
+            {
+                inBox_tr();
+            }
+            else if (boxRd != boxTe)
+            {
+                inBox_fa();
+            }
         }
         if (other.gameObject.tag == "Door")
         {
