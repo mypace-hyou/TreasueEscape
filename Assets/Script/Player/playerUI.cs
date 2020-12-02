@@ -64,18 +64,6 @@ public class playerUI : MonoBehaviour
         if (boxOC)
         {
             pm.speed = 0;
-        }
-        else if (!boxOC)
-        {
-            pm.speed = 6;
-        }
-    }
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Box")
-        {
-            boxUI = true;
-            hit = 1;
             if (boxRd == boxTe)
             {
                 inBox_tr();
@@ -84,6 +72,19 @@ public class playerUI : MonoBehaviour
             {
                 inBox_fa();
             }
+        }
+        else if (!boxOC)
+        {
+            pm.speed = 6;
+            outBox();
+        }
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Box")
+        {
+            boxUI = true;
+            hit = 1;
         }
         if (other.gameObject.tag == "Door")
         {
@@ -96,7 +97,6 @@ public class playerUI : MonoBehaviour
         if (col.gameObject.tag == "Box")
         {
             boxUI = false;
-            outBox();
             hit = 0;
         }
         if (col.gameObject.tag == "Door")
