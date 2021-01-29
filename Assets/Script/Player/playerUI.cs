@@ -11,8 +11,9 @@ public class playerUI : MonoBehaviour
     [SerializeField] private GameObject ItemBox_tr, ItemBox_fa,ItemUI;
     public float boxRd;
     public float boxTe;
-    public GameObject box_Item,player_Item;
-    public GameObject TextUI,box;
+    public GameObject player_Item;
+    public GameObject box_Item;
+    public GameObject TextUI;
     void Start()
     {
         boxUI = false;

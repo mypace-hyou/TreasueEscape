@@ -46,7 +46,7 @@ public class PlayerMov : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void Update()
+     void Update()
     {
         Rotate();
         Move();

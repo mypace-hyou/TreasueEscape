@@ -5,7 +5,7 @@ using UnityEngine;
 public class DoorScript : MonoBehaviour
 {
     //　ドアエリアに入っているかどうか
-    private bool isNear;
+    [SerializeField]private bool isNear;
     //　ドアのアニメーター
     [SerializeField]private Animator animator;
     // Start is called before the first frame update
