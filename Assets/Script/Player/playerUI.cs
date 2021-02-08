@@ -33,11 +33,11 @@ public class playerUI : MonoBehaviour
     //item関連
     public void Item()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && ItemUI_Ch == false)
+        if (ItemUI_Ch == false)
         {
             ItemUI_Ch = true;
         }
-        else if(Input.GetKeyDown(KeyCode.Tab) && ItemUI_Ch == true)
+        else if(ItemUI_Ch == true)
         {
             ItemUI_Ch = false;
         }
@@ -85,21 +85,25 @@ public class playerUI : MonoBehaviour
         if (Input.GetKeyDown("space") && !boxOC && hit == 1)
         {
             boxOC = true;
+            ItemUI_Ch = true;
             pm.mouse_O();
         }
         else if (Input.GetKeyDown("space") && boxOC && hit == 1)
         {
             boxOC = false;
+            ItemUI_Ch = false;
             pm.mouse_C();
         }
         if (boxOC)
         {
             pm.speed = 0;
+            Item_ch();
             inBox_tr();
         }
         else if (!boxOC)
         {
             pm.speed = 6;
+            Item_ch();
             outBox();
         }
     }

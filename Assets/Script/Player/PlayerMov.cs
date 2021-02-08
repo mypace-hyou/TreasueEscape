@@ -37,14 +37,18 @@ public class PlayerMov : MonoBehaviour
     /// <summary>マウスの感度</summary>
     [Range(50, 500)]
     public int sensitivity = 200;
-
+    playerUI player_Ui;
     void Start()
     {
         mouse_C();
+        player_Ui = GetComponent<playerUI>();
     }
-     void Update()
+    void Update()
     {
-        Rotate();
+        if (player_Ui.boxOC == false)
+        {
+            Rotate();
+        }
         Move();
     }
     public void mouse_O()

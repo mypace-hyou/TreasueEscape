@@ -25,7 +25,10 @@ public class PlayerItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ItemCH();
+        if (Input.GetKeyDown(KeyCode.Tab) && PU.boxOC==false)
+        {
+            ItemCH();
+        }
     }
     public void ItemCH()
     {
