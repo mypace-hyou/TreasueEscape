@@ -25,6 +25,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (other.gameObject.tag == "Box_1")
         {
+            Debug.Log("hit");
             te = 1;
         }
         if (other.gameObject.tag == "Box_2")

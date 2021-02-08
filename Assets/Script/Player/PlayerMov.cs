@@ -38,20 +38,28 @@ public class PlayerMov : MonoBehaviour
     [Range(50, 500)]
     public int sensitivity = 200;
 
-    private void Start()
+    void Start()
+    {
+        mouse_C();
+    }
+     void Update()
+    {
+        Rotate();
+        Move();
+    }
+    public void mouse_O()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+    public void mouse_C()
     {
         m_control = GetComponent<CharacterController>();
         // マウスカーソルを消す（実行中は ESC キーを押すとマウスカーソルが表示される）
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
-
-     void Update()
-    {
-        Rotate();
-        Move();
-    }
-    private void Rotate()
+    void Rotate()
     {
         transform.Rotate(Vector3.up * sensitivity * Time.deltaTime * Input.GetAxis("Mouse X"));
 

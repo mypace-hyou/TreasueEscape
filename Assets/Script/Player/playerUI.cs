@@ -8,41 +8,69 @@ public class playerUI : MonoBehaviour
     [SerializeField] int hit;
     [SerializeField] private bool doorUI;
     [SerializeField] public bool boxUI, boxOC;
-    [SerializeField] private GameObject ItemBox_tr, ItemBox_fa,ItemUI;
+    [SerializeField] private bool ItemUI_Ch;
+    [SerializeField] private GameObject ItemBox;
     public float boxRd;
     public float boxTe;
     public GameObject player_Item;
     public GameObject box_Item;
     public GameObject TextUI;
+    public GameObject itemFolderUI;
     void Start()
     {
         boxUI = false;
         boxOC = false;
+        ItemUI_Ch = false;
         hit = 0;
         Player_mov = GameObject.Find("Player");
     }
     void Update()
     {
         Box_UI();
-        gamemanager GM = box_Item.GetComponent<gamemanager>();
-        boxRd = GM.Ram_Treasure;
         PlayerControl PC = player_Item.GetComponent<PlayerControl>();
         boxTe = PC.te;
     }
+    //item関連
+    public void Item()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab) && ItemUI_Ch == false)
+        {
+            ItemUI_Ch = true;
+        }
+        else if(Input.GetKeyDown(KeyCode.Tab) && ItemUI_Ch == true)
+        {
+            ItemUI_Ch = false;
+        }
+        Item_ch();
+    }
+    void Item_ch()
+    {
+        if (ItemUI_Ch == true)
+        {
+            box_tr();
+        }
+        else if (ItemUI_Ch == false)
+        {
+            box_fa();
+        }
+    }
+    public void box_fa()
+    {
+        itemFolderUI.gameObject.SetActive(false);
+    }
+    public void box_tr()
+    {
+        itemFolderUI.gameObject.SetActive(true);
+    }
     public void inBox_tr()
     {
-        ItemBox_tr.gameObject.SetActive(true);
-        ItemUI.gameObject.SetActive(true);
-    }
-    public void inBox_fa()
-    {
-        ItemBox_fa.gameObject.SetActive(true);
+        ItemBox.gameObject.SetActive(true);
     }
     public void outBox()
     {
-        ItemBox_tr.gameObject.SetActive(false);
-        ItemBox_fa.gameObject.SetActive(false);
+        ItemBox.gameObject.SetActive(false);
     }
+    //box関連
     public void Box_UI()
     {
         PlayerMov pm = GetComponent<PlayerMov>();
@@ -57,22 +85,17 @@ public class playerUI : MonoBehaviour
         if (Input.GetKeyDown("space") && !boxOC && hit == 1)
         {
             boxOC = true;
+            pm.mouse_O();
         }
         else if (Input.GetKeyDown("space") && boxOC && hit == 1)
         {
             boxOC = false;
+            pm.mouse_C();
         }
         if (boxOC)
         {
             pm.speed = 0;
-            if (boxRd == boxTe)
-            {
-                inBox_tr();
-            }
-            else if (boxRd != boxTe)
-            {
-                inBox_fa();
-            }
+            inBox_tr();
         }
         else if (!boxOC)
         {
