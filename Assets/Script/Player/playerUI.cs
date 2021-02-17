@@ -10,6 +10,7 @@ public class playerUI : MonoBehaviour
     [SerializeField] public bool boxUI, boxOC;
     [SerializeField] private bool ItemUI_Ch;
     [SerializeField] private GameObject ItemBox;
+    public bool Havekey;
     public float boxRd;
     public float boxTe;
     public GameObject player_Item;
@@ -18,6 +19,7 @@ public class playerUI : MonoBehaviour
     public GameObject itemFolderUI;
     void Start()
     {
+        Havekey = false;
         boxUI = false;
         boxOC = false;
         ItemUI_Ch = false;
@@ -119,6 +121,11 @@ public class playerUI : MonoBehaviour
             doorUI = true;
             hit = 2;
         }
+        if (other.gameObject.tag == "keyDoor" && Havekey == true)
+        {
+            doorUI = true;
+            hit = 2;
+        }
     }
     void OnTriggerExit(Collider col)
     {
@@ -128,6 +135,11 @@ public class playerUI : MonoBehaviour
             hit = 0;
         }
         if (col.gameObject.tag == "Door")
+        {
+            doorUI = true;
+            hit = 0;
+        }
+        if (col.gameObject.tag == "keyDoor")
         {
             doorUI = true;
             hit = 0;

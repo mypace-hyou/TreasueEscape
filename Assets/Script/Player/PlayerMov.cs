@@ -38,10 +38,15 @@ public class PlayerMov : MonoBehaviour
     [Range(50, 500)]
     public int sensitivity = 200;
     playerUI player_Ui;
+
+    public GameObject Game_m;
+     gamemanager Gm;
+    public bool ch;
     void Start()
     {
         mouse_C();
         player_Ui = GetComponent<playerUI>();
+        Gm = Game_m.GetComponent<gamemanager>();
     }
     void Update()
     {
@@ -50,6 +55,10 @@ public class PlayerMov : MonoBehaviour
             Rotate();
         }
         Move();
+        if (ch == true)
+        {
+
+        }
     }
     public void mouse_O()
     {
@@ -80,5 +89,12 @@ public class PlayerMov : MonoBehaviour
 
         m_moveDirection.y -= gravity * Time.deltaTime;
         m_control.Move(m_moveDirection * speed * Time.deltaTime);
+    }
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Gate")
+        {
+            Gm.gateCH = true;
+        }
     }
 }

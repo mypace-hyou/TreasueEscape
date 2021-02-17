@@ -11,6 +11,20 @@ TagManager:
   - Box_3
   - Box_4
   - Box_5
+  - Box_6
+  - Box_7
+  - Box_8
+  - Box_9
+  - Box_10
+  - Box_fake
+  - KeyBox_1
+  - KeyBox_2
+  - keyDoor
+  - key
+  - obj
+  - bag
+  - BoxBg
+  - Gate
   layers:
   - Default
   - TransparentFX
