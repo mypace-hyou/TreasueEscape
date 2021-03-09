@@ -47,57 +47,57 @@ public class ItemManager : MonoBehaviour
     [Header("気まぐれの人")]//(自由の女神
     [SerializeField] GameObject kimagure;
     [SerializeField] int khn = -1;
-    Item Item_kimagure;
+    Items Item_kimagure;
 
     [Header("病んでる糸")]//考える人
     [SerializeField] GameObject yanderu;
     [SerializeField] int yin = -1;
-    Item Item_yanderu;
+    Items Item_yanderu;
 
     [Header("かっこつけ")]//円盤投げ
     [SerializeField] GameObject kakkotuke;
     [SerializeField] int ktn = -1;
-    Item Item_kakkotuke;
+    Items Item_kakkotuke;
 
     [Header("サメハダ大臣")]//(カメハメハ大王)
     [SerializeField] GameObject samehada;
     [SerializeField] int sdn = -1;
-    Item Item_samehada;
+    Items Item_samehada;
 
     [Header("ロジックストーン")]//(ロゼッタストーン)
     [SerializeField] GameObject logicStone;
     [SerializeField] int lsn = -1;
-    Item Item_logicStone;
+    Items Item_logicStone;
 
     [Header("大行進")]//ビートルズのジャケ
     [SerializeField] GameObject greatMarch;
     [SerializeField] int gmn = -1;
-    Item Item_greatMarch;
+    Items Item_greatMarch;
 
     [Header("先陣を切って潜るペンギン")]//民衆を導く自由の女神
     [SerializeField] GameObject Firstpengin;
     [SerializeField] int spn = -1;
-    Item Item_Firstpengin;
+    Items Item_Firstpengin;
 
     [Header("水をあげる棒人間")]//牛乳を注ぐ女
     [SerializeField] GameObject water;
     [SerializeField] int mwn = -1;
-    Item Item_water;
+    Items Item_water;
 
     [Header("忙人暇人生活図")]//風神雷神図屏風
     [SerializeField] GameObject LifeMap;
     [SerializeField] int lmn = -1;
-    Item Item_lifeMap;
+    Items Item_lifeMap;
 
     [Header("珍獣を馬乗りのするやつ")]//真珠の耳飾りの少女
     [SerializeField] GameObject Ride;
     [SerializeField] int rdn = -1;
-    Item Item_ride;
+    Items Item_ride;
 
     [Header("脱出用の鍵")]
     [SerializeField] GameObject key;
     [SerializeField] int ken = -1;
-    Item Item_key;
+    Items Item_key;
 
     [SerializeField] private int ItemNumber = 0;
     [SerializeField] private int BoxNumber = 0;
@@ -132,10 +132,6 @@ public class ItemManager : MonoBehaviour
                 b++;
             }
         }
-    }
-    void Update()
-    {
-        
     }
     void Bn()
     {
@@ -1317,17 +1313,17 @@ public class ItemManager : MonoBehaviour
     }
     void getcon()
     {
-        Item_kimagure = kimagure.GetComponent<Item>();
-        Item_yanderu = yanderu.GetComponent<Item>();
-        Item_kakkotuke = kakkotuke.GetComponent<Item>();
-        Item_samehada = samehada.GetComponent<Item>();
-        Item_logicStone = logicStone.GetComponent<Item>();
-        Item_greatMarch = greatMarch.GetComponent<Item>();
-        Item_Firstpengin = Firstpengin.GetComponent<Item>();
-        Item_water = water.GetComponent<Item>();
-        Item_lifeMap = LifeMap.GetComponent<Item>();
-        Item_ride = Ride.GetComponent<Item>();
-        Item_key = key.GetComponent<Item>();
+        Item_kimagure = kimagure.GetComponent<Items>();
+        Item_yanderu = yanderu.GetComponent<Items>();
+        Item_kakkotuke = kakkotuke.GetComponent<Items>();
+        Item_samehada = samehada.GetComponent<Items>();
+        Item_logicStone = logicStone.GetComponent<Items>();
+        Item_greatMarch = greatMarch.GetComponent<Items>();
+        Item_Firstpengin = Firstpengin.GetComponent<Items>();
+        Item_water = water.GetComponent<Items>();
+        Item_lifeMap = LifeMap.GetComponent<Items>();
+        Item_ride = Ride.GetComponent<Items>();
+        Item_key = key.GetComponent<Items>();
     }
     void Sorting()
     {

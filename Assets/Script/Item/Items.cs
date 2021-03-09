@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
 
-public class Item : MonoBehaviour
+public class Items : MonoBehaviour
 {
     public int myItemNumber;
     [Header("アイテムの画像を入れる")]
