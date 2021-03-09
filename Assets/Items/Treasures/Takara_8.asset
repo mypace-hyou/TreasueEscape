@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9378d26beaa35b840b13bfc6f2f97814, type: 3}
   m_Name: Takara_8
   m_EditorClassIdentifier: 
-  itamName: takara_3
-  itemImage: {fileID: 21300000, guid: faf1bc22187613d4395a97ebbdcc9db1, type: 3}
+  itamName: takara_8
+  itemImage: {fileID: 21300000, guid: 49a19b19342cb4f449c305d7e504d5a4, type: 3}
   Rarity: 0
