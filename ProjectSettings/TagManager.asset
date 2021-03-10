@@ -17,14 +17,13 @@ TagManager:
   - Box_9
   - Box_10
   - Box_fake
-  - KeyBox_1
-  - KeyBox_2
   - keyDoor
   - key
   - obj
   - bag
   - BoxBg
   - Gate
+  - KeyBox
   layers:
   - Default
   - TransparentFX
