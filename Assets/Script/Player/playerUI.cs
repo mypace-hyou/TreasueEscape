@@ -17,6 +17,7 @@ public class playerUI : MonoBehaviour
     public GameObject box_Item;
     public GameObject TextUI;
     public GameObject itemFolderUI;
+    SlotGrit slotGrit;
     void Start()
     {
         Havekey = false;
@@ -24,6 +25,7 @@ public class playerUI : MonoBehaviour
         boxOC = false;
         ItemUI_Ch = false;
         hit = 0;
+        slotGrit = FindObjectOfType<SlotGrit>();
         Player_mov = GameObject.Find("Player");
     }
     void Update()
@@ -89,11 +91,13 @@ public class playerUI : MonoBehaviour
             boxOC = true;
             ItemUI_Ch = true;
             pm.mouse_O();
+            slotGrit.HitBox = true;
         }
         else if (Input.GetKeyDown("space") && boxOC && hit == 1)
         {
             boxOC = false;
             ItemUI_Ch = false;
+            slotGrit.HitBox = false;
             pm.mouse_C();
         }
         if (boxOC)

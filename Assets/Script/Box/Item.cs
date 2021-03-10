@@ -13,13 +13,6 @@ public class Item : ScriptableObject
     private int Rarity;
     gamemanager gm;
     int num;
-
-    private void Awake()
-    {
-        num = gm.ran;
-    }
-
-
     //立ち絵の変更するときは戻す(set => itamName = value;　を付ける)
     public string MyItamName { get => itamName;}
     public Sprite MyItemImage { get => itemImage; }

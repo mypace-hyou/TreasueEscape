@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
+    public static ItemManager instance { get; private set; }
     [SerializeField] GameObject box_1;
     [SerializeField] int box_1num = -1;
     [SerializeField] GameObject box_2;
@@ -44,83 +45,15 @@ public class ItemManager : MonoBehaviour
     [SerializeField] int box_19num = -1;
     [SerializeField] GameObject box_20;
     [SerializeField] int box_20num = -1;
-    [Header("気まぐれの人")]//(自由の女神
-    [SerializeField] GameObject kimagure;
-    [SerializeField] int khn = -1;
-    Items Item_kimagure;
 
-    [Header("病んでる糸")]//考える人
-    [SerializeField] GameObject yanderu;
-    [SerializeField] int yin = -1;
-    Items Item_yanderu;
-
-    [Header("かっこつけ")]//円盤投げ
-    [SerializeField] GameObject kakkotuke;
-    [SerializeField] int ktn = -1;
-    Items Item_kakkotuke;
-
-    [Header("サメハダ大臣")]//(カメハメハ大王)
-    [SerializeField] GameObject samehada;
-    [SerializeField] int sdn = -1;
-    Items Item_samehada;
-
-    [Header("ロジックストーン")]//(ロゼッタストーン)
-    [SerializeField] GameObject logicStone;
-    [SerializeField] int lsn = -1;
-    Items Item_logicStone;
-
-    [Header("大行進")]//ビートルズのジャケ
-    [SerializeField] GameObject greatMarch;
-    [SerializeField] int gmn = -1;
-    Items Item_greatMarch;
-
-    [Header("先陣を切って潜るペンギン")]//民衆を導く自由の女神
-    [SerializeField] GameObject Firstpengin;
-    [SerializeField] int spn = -1;
-    Items Item_Firstpengin;
-
-    [Header("水をあげる棒人間")]//牛乳を注ぐ女
-    [SerializeField] GameObject water;
-    [SerializeField] int mwn = -1;
-    Items Item_water;
-
-    [Header("忙人暇人生活図")]//風神雷神図屏風
-    [SerializeField] GameObject LifeMap;
-    [SerializeField] int lmn = -1;
-    Items Item_lifeMap;
-
-    [Header("珍獣を馬乗りのするやつ")]//真珠の耳飾りの少女
-    [SerializeField] GameObject Ride;
-    [SerializeField] int rdn = -1;
-    Items Item_ride;
-
-    [Header("脱出用の鍵")]
-    [SerializeField] GameObject key;
-    [SerializeField] int ken = -1;
-    Items Item_key;
-
-    [SerializeField] private int ItemNumber = 0;
-    [SerializeField] private int BoxNumber = 0;
-    private int list = 10;
+    public int BoxNumber = 0;
+    private int list = 12;
     int b;
-    int i;
-    List<float> listNum = new List<float>();
     List<float> boxNumList = new List<float>();
 
-    void Start()
+    private void Awake()
     {
-        getcon();
-        for (i = 0; i <= list;)
-        {
-            ItemNumber = Random.Range(0, 11);
-            bool ch = listNum.Contains(ItemNumber);
-            if (!ch)
-            {
-                listNum.Add(ItemNumber);
-                Sorting();
-                i++;
-            }
-        }
+        instance = this;
         for (b = 0; b <= list;)
         {
             BoxNumber = Random.Range(0, 20);
@@ -128,10 +61,16 @@ public class ItemManager : MonoBehaviour
             if (!ch)
             {
                 boxNumList.Add(BoxNumber);
+                //SlotGrit slot = GetComponent<SlotGrit>();
+                //slot.BoxNumberList.Add(BoxNumber);
                 Bn();
                 b++;
             }
         }
+    }
+    void Start()
+    {
+        
     }
     void Bn()
     {
@@ -145,52 +84,41 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_1.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_1.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_1.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_1.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_1.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             
                             break;
                         case 5:
                             box_1.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             
                             break;
                         case 6:
                             box_1.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             
                             break;
                         case 7:
                             box_1.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             
                             break;
                         case 8:
                             box_1.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             
                             break;
                         case 9:
                             box_1.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_1.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_1.tag = "KeyBox";
                             break;
                         case -1:
                             box_1.tag = "Box_fake";
@@ -208,52 +136,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_2.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_2.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_2.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_2.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_2.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
-
                             break;
                         case 5:
                             box_2.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
-
                             break;
                         case 6:
                             box_2.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
-
                             break;
                         case 7:
                             box_2.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
-
                             break;
                         case 8:
                             box_2.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
-
                             break;
                         case 9:
                             box_2.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_2.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_2.tag = "KeyBox";
                             break;
                         case -1:
                             box_2.tag = "Box_fake";
@@ -271,47 +183,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_3.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_3.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_3.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_3.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_3.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             break;
                         case 5:
                             box_3.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             break;
                         case 6:
                             box_3.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             break;
                         case 7:
                             box_3.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             break;
                         case 8:
                             box_3.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             break;
                         case 9:
                             box_3.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_3.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_3.tag = "KeyBox";
                             break;
                         case -1:
                             box_3.tag = "Box_fake";
@@ -329,47 +230,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_4.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_4.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_4.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_4.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_4.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             break;
                         case 5:
                             box_4.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             break;
                         case 6:
                             box_4.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             break;
                         case 7:
                             box_4.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             break;
                         case 8:
                             box_4.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             break;
                         case 9:
                             box_4.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_4.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_4.tag = "KeyBox";
                             break;
                         case -1:
                             box_4.tag = "Box_fake";
@@ -387,47 +277,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_5.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_5.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_5.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_5.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_5.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             break;
                         case 5:
                             box_5.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             break;
                         case 6:
                             box_5.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             break;
                         case 7:
                             box_5.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             break;
                         case 8:
                             box_5.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             break;
                         case 9:
                             box_5.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_5.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_5.tag = "KeyBox";
                             break;
                         case -1:
                             box_5.tag = "Box_fake";
@@ -445,47 +324,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_6.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_6.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_6.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_6.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_6.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             break;
                         case 5:
                             box_6.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             break;
                         case 6:
                             box_6.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             break;
                         case 7:
                             box_6.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             break;
                         case 8:
                             box_6.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             break;
                         case 9:
                             box_6.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_6.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_6.tag = "KeyBox";
                             break;
                         case -1:
                             box_6.tag = "Box_fake";
@@ -503,47 +371,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_7.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_7.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_7.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_7.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_7.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             break;
                         case 5:
                             box_7.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             break;
                         case 6:
                             box_7.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             break;
                         case 7:
                             box_7.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             break;
                         case 8:
                             box_7.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             break;
                         case 9:
                             box_7.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_7.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_7.tag = "KeyBox";
                             break;
                         case -1:
                             box_7.tag = "Box_fake";
@@ -561,47 +418,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_8.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_8.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_8.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_8.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_8.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             break;
                         case 5:
                             box_8.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             break;
                         case 6:
                             box_8.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             break;
                         case 7:
                             box_8.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             break;
                         case 8:
                             box_8.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             break;
                         case 9:
                             box_8.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_8.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_8.tag = "KeyBox";
                             break;
                         case -1:
                             box_8.tag = "Box_fake";
@@ -619,47 +465,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_9.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_9.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_9.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_9.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_9.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             break;
                         case 5:
                             box_9.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             break;
                         case 6:
                             box_9.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             break;
                         case 7:
                             box_9.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             break;
                         case 8:
                             box_9.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             break;
                         case 9:
                             box_9.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_9.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_9.tag = "KeyBox";
                             break;
                         case -1:
                             box_9.tag = "Box_fake";
@@ -677,47 +512,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_10.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_10.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_10.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_10.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_10.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             break;
                         case 5:
                             box_10.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             break;
                         case 6:
                             box_10.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             break;
                         case 7:
                             box_10.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             break;
                         case 8:
                             box_10.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             break;
                         case 9:
                             box_10.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_10.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_10.tag = "KeyBox";
                             break;
                         case -1:
                             box_10.tag = "Box_fake";
@@ -735,47 +559,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_11.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_11.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_11.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_11.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_11.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             break;
                         case 5:
                             box_11.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             break;
                         case 6:
                             box_11.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             break;
                         case 7:
                             box_11.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             break;
                         case 8:
                             box_11.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             break;
                         case 9:
                             box_11.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_11.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_11.tag = "KeyBox";
                             break;
                         case -1:
                             box_11.tag = "Box_fake";
@@ -793,47 +606,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_12.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_12.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_12.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_12.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_12.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             break;
                         case 5:
                             box_12.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             break;
                         case 6:
                             box_12.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             break;
                         case 7:
                             box_12.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             break;
                         case 8:
                             box_12.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             break;
                         case 9:
                             box_12.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_12.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_12.tag = "KeyBox";
                             break;
                         case -1:
                             box_12.tag = "Box_fake";
@@ -851,47 +653,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_13.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_13.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_13.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_13.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_13.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             break;
                         case 5:
                             box_13.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             break;
                         case 6:
                             box_13.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             break;
                         case 7:
                             box_13.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             break;
                         case 8:
                             box_13.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             break;
                         case 9:
                             box_13.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_13.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_13.tag = "KeyBox";
                             break;
                         case -1:
                             box_13.tag = "Box_fake";
@@ -909,47 +700,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_14.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_14.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_14.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_14.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_14.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             break;
                         case 5:
                             box_14.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             break;
                         case 6:
                             box_14.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             break;
                         case 7:
                             box_14.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             break;
                         case 8:
                             box_14.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             break;
                         case 9:
                             box_14.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_14.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_14.tag = "KeyBox";
                             break;
                         case -1:
                             box_14.tag = "Box_fake";
@@ -967,47 +747,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_15.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_15.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_15.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_15.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_15.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             break;
                         case 5:
                             box_15.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             break;
                         case 6:
                             box_15.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             break;
                         case 7:
                             box_15.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             break;
                         case 8:
                             box_15.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             break;
                         case 9:
                             box_15.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_15.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_15.tag = "KeyBox";
                             break;
                         case -1:
                             box_15.tag = "Box_fake";
@@ -1025,47 +794,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_16.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_16.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_16.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_16.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_16.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             break;
                         case 5:
                             box_16.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             break;
                         case 6:
                             box_16.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             break;
                         case 7:
                             box_16.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             break;
                         case 8:
                             box_16.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             break;
                         case 9:
                             box_16.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_16.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_16.tag = "KeyBox";
                             break;
                         case -1:
                             box_16.tag = "Box_fake";
@@ -1083,47 +841,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_17.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_17.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_17.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_17.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_17.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             break;
                         case 5:
                             box_17.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             break;
                         case 6:
                             box_17.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             break;
                         case 7:
                             box_17.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             break;
                         case 8:
                             box_17.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             break;
                         case 9:
                             box_17.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_17.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_17.tag = "KeyBox";
                             break;
                         case -1:
                             box_17.tag = "Box_fake";
@@ -1141,47 +888,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_18.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_18.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_18.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_18.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_18.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             break;
                         case 5:
                             box_18.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             break;
                         case 6:
                             box_18.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             break;
                         case 7:
                             box_18.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             break;
                         case 8:
                             box_18.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             break;
                         case 9:
                             box_18.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_18.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_18.tag = "KeyBox";
                             break;
                         case -1:
                             box_18.tag = "Box_fake";
@@ -1199,47 +935,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_19.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_19.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_19.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_19.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_19.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             break;
                         case 5:
                             box_19.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             break;
                         case 6:
                             box_19.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             break;
                         case 7:
                             box_19.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             break;
                         case 8:
                             box_19.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             break;
                         case 9:
                             box_19.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_19.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_19.tag = "KeyBox";
                             break;
                         case -1:
                             box_19.tag = "Box_fake";
@@ -1257,47 +982,36 @@ public class ItemManager : MonoBehaviour
                     {
                         case 0:
                             box_20.tag = "Box_1";
-                            Item_kimagure.myItemNumber = khn;
                             break;
                         case 1:
                             box_20.tag = "Box_2";
-                            Item_yanderu.myItemNumber = yin;
                             break;
                         case 2:
                             box_20.tag = "Box_3";
-                            Item_kakkotuke.myItemNumber = ktn;
                             break;
                         case 3:
                             box_20.tag = "Box_4";
-                            Item_samehada.myItemNumber = sdn;
                             break;
                         case 4:
                             box_20.tag = "Box_5";
-                            Item_logicStone.myItemNumber = lsn;
                             break;
                         case 5:
                             box_20.tag = "Box_6";
-                            Item_greatMarch.myItemNumber = gmn;
                             break;
                         case 6:
                             box_20.tag = "Box_7";
-                            Item_Firstpengin.myItemNumber = spn;
                             break;
                         case 7:
                             box_20.tag = "Box_8";
-                            Item_water.myItemNumber = mwn;
                             break;
                         case 8:
                             box_20.tag = "Box_9";
-                            Item_lifeMap.myItemNumber = lmn;
                             break;
                         case 9:
                             box_20.tag = "Box_10";
-                            Item_ride.myItemNumber = rdn;
                             break;
                         case 10:
-                            box_20.tag = "KeyBox_1";
-                            Item_key.myItemNumber = ken;
+                            box_20.tag = "KeyBox";
                             break;
                         case -1:
                             box_20.tag = "Box_fake";
@@ -1306,61 +1020,6 @@ public class ItemManager : MonoBehaviour
                             break;
                     }
                 }
-                break;
-            default:
-                break;
-        }
-    }
-    void getcon()
-    {
-        Item_kimagure = kimagure.GetComponent<Items>();
-        Item_yanderu = yanderu.GetComponent<Items>();
-        Item_kakkotuke = kakkotuke.GetComponent<Items>();
-        Item_samehada = samehada.GetComponent<Items>();
-        Item_logicStone = logicStone.GetComponent<Items>();
-        Item_greatMarch = greatMarch.GetComponent<Items>();
-        Item_Firstpengin = Firstpengin.GetComponent<Items>();
-        Item_water = water.GetComponent<Items>();
-        Item_lifeMap = LifeMap.GetComponent<Items>();
-        Item_ride = Ride.GetComponent<Items>();
-        Item_key = key.GetComponent<Items>();
-    }
-    void Sorting()
-    {
-        switch (i)
-        {
-            case 0:
-                khn = ItemNumber;
-                break;
-            case 1:
-                yin = ItemNumber;
-                break;
-            case 2:
-                ktn = ItemNumber;
-                break;
-            case 3:
-                sdn = ItemNumber;
-                break;
-            case 4:
-                lsn = ItemNumber;
-                break;
-            case 5:
-                gmn = ItemNumber;
-                break;
-            case 6:
-                spn = ItemNumber;
-                break;
-            case 7:
-                mwn = ItemNumber;
-                break;
-            case 8:
-                lmn = ItemNumber;
-                break;
-            case 9:
-                rdn = ItemNumber;
-                break;
-            case 10:
-                ken = ItemNumber;
                 break;
             default:
                 break;
