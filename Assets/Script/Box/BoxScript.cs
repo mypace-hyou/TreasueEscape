@@ -12,7 +12,6 @@ public class BoxScript : MonoBehaviour
     void Start()
     {
         isNear = false;
-        //animator = transform.parent.GetComponent<Animator>();
     }
 
     // Update is called once per frame

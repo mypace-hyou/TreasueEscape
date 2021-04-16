@@ -30,6 +30,10 @@ public class playerUI : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Tab) && boxOC == false)
+        {
+            Item();
+        }
         Box_UI();
         PlayerControl PC = player_Item.GetComponent<PlayerControl>();
         boxTe = PC.te;

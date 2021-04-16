@@ -7,20 +7,22 @@ using UnityEngine.UI;
 public class gamemanager : MonoBehaviour
 {
     public static gamemanager instanc { get; private set; }
-    MyItem mi;
+    PlayerControl playerControl;
     public GameObject itemBag;
     int judge = 0;
     public Text Timetext;
     public float time;
+    public int ItemCh;
     public bool itemCH = false;
     public bool gateCH = false;
+    public bool goleCH = false;
     public int ran;
     // Start is called before the first frame update
     void Start()
     {
         instanc = this;
         time = 60;
-        mi = itemBag.GetComponent<MyItem>();
+        playerControl = itemBag.GetComponent<PlayerControl>();
     }
 
     // Update is called once per frame
@@ -28,22 +30,22 @@ public class gamemanager : MonoBehaviour
     {
         Timetext.text ="残り時間" +time.ToString("F0");
         //time -= Time.deltaTime;
-        //if (mi.getItemNum == 10)
-        //{
-        //    itemCH = true;
-        //}
-        //else
-        //{
-        //    itemCH = false;
-        //}
-        //if (time <= 0)
-        //{
-        //    O_GameScene();
-        //}
-        //if (itemCH == true && gateCH == true)
-        //{
-        //    C_GameScene();
-        //}
+        if (ItemCh < 5)
+        {
+            itemCH = false;
+        }
+        else if (ItemCh >= 5)
+        {
+            itemCH = true;
+        } 
+        if (time <= 0)
+        {
+            O_GameScene();
+        }
+        if (itemCH == true && gateCH == true && goleCH == true)
+        {
+            C_GameScene();
+        }
     }
     public void C_GameScene()
     {

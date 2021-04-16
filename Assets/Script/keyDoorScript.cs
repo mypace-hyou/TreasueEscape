@@ -10,12 +10,13 @@ public class keyDoorScript : MonoBehaviour
     [SerializeField] private bool isNear;
     //　ドアのアニメーター
     [SerializeField] private Animator animator;
+    gamemanager gm;
     // Start is called before the first frame update
     void Start()
     {
         isNear = false;
         pu = player.GetComponent<playerUI>();
-
+        gm = FindObjectOfType<gamemanager>();
         //animator = transform.parent.GetComponent<Animator>();
     }
 
@@ -25,11 +26,12 @@ public class keyDoorScript : MonoBehaviour
         if (Input.GetKeyDown("space") && isNear)
         {
             animator.SetBool("Open", !animator.GetBool("Open"));
+            gm.goleCH = true;
         }
     }
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Player" && pu.Havekey == true)
+        if (col.gameObject.tag == "Player"/* && gm.goleCH*/)
         {
             isNear = true;
         }

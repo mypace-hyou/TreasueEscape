@@ -10,15 +10,19 @@ public class GameOver : MonoBehaviour
     float time = 1;
     int count = 0;
     public GameObject button;
+    PlayerMov pm;
     // Start is called before the first frame update
     void Start()
     {
+        pm = FindObjectOfType<PlayerMov>();
         button.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         time -= Time.deltaTime;
         if (time <= 0)
         {

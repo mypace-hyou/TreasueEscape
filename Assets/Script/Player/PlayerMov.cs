@@ -55,10 +55,6 @@ public class PlayerMov : MonoBehaviour
             Rotate();
         }
         Move();
-        if (ch == true)
-        {
-
-        }
     }
     public void mouse_O()
     {

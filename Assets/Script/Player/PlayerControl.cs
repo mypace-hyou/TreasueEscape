@@ -6,31 +6,42 @@ using UnityEngine.EventSystems;
 public class PlayerControl : MonoBehaviour
 {
     public int te;
-    public bool boxNo_1;
-    public bool boxNo_2;
-    public bool boxNo_3;
-    public bool boxNo_4;
-    public bool boxNo_5;
 
     private Item item;
     public Item MyItem { get => item; private set => item = value; }
+    private key key;
+    public key MyKey { get => key; private set => key = value; }
     [SerializeField]
     private int atk;
+    public int keyNumber;
+    public int ItemNumber;
+    gamemanager gm;
     public int MyAtk
     {
         get
         {
+            key key = MyKey as key;
+
             int itemAtk = 0;
-            //if (MyItem != null) itemAtk = MyItem.MyAtk;
+            if (key != null) itemAtk = MyKey.Key;
             return atk + itemAtk;
         }
     }
-
+    void Awake()
+    {
+        gm = FindObjectOfType<gamemanager>();
+    }
     public void SetItem(Item item)
     {
         MyItem = item;
-        //Debug.Log("所持アイテムは" + MyItem.MyItamName+"です");
-        //Debug.Log("レア度は" + MyItem.RarityNumber + "です");
+        if (MyItem.RarityNumber == 0)
+        {
+            gm.ItemCh++;
+        }
+        if ("key" == MyItem.MyItamName)
+        {
+            gm.gateCH = true;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
