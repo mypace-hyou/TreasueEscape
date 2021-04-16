@@ -6,7 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Items", menuName = "Items/key")]
 public class key : Item
 {
-    private int keyObj;
+    [SerializeField]
+    private int keyObj = 1;
 
-    public int Key { get => keyObj;}
+    public int Key { get => keyObj; set => keyObj = value; }
 }
