@@ -28,12 +28,13 @@ public class SlotGrit : MonoBehaviour
     }
     void Start()
     {
-        for (int i = -1; i < 11;)//ボックス事に表示する場所を決める
+        for (int i = 0; i < 11;)//ボックス事に表示する場所を決める
         {
-            int ran = i;
+            int ran = Random.Range(0, 20);
             bool ch = BoxNumberList.Contains(ran);
             if (!ch)
             {
+                Debug.Log(ran);
                 BoxNumberList.Add(ran);
                 i++;
             }

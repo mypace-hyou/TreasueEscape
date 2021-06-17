@@ -85,7 +85,7 @@ public class PlayerControl : MonoBehaviour
         {
             te = 9;
         }
-        if (other.gameObject.tag == "Box_9")
+        if (other.gameObject.tag == "Box_11")
         {
             te = 10;
         }
