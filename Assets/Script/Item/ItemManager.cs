@@ -46,36 +46,36 @@ public class ItemManager : MonoBehaviour
     [SerializeField] GameObject box_20;
     [SerializeField] int box_20num = -1;
 
-    public int BoxNumber = 0;
-    private int list = 11;
-    int b;
+    public int boxNumber = 0;
+    /// <summary>変数の仮置き</summary>
+    int temporaryNumber;
     /// <summary>アイテムを表示させるボックスナンバーを入れるList</summary>
     public List<float> boxNumList = new List<float>();
 
     private void Awake()
     {
         instance = this;
-        for (b = 0; b < list;)
+        for (temporaryNumber = 0; temporaryNumber < 11;)
         {
-            BoxNumber = Random.Range(0, 20);
-            bool ch = boxNumList.Contains(BoxNumber);
+            boxNumber = Random.Range(0, 20);
+            bool ch = boxNumList.Contains(boxNumber);
             if (!ch)
             {
-                boxNumList.Add(BoxNumber);
+                boxNumList.Add(boxNumber);
                 Bn();
-                b++;
+                temporaryNumber++;
             }
         }
     }
     public void Bn()
     {
-        switch (BoxNumber)
+        switch (boxNumber)
         {
             case 0:
-                box_1num = b;
-                if (box_1num == b)
+                box_1num = temporaryNumber;
+                if (box_1num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_1.tag = "Box_1";
@@ -119,10 +119,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 1:
-                box_2num = b;
-                if (box_2num == b)
+                box_2num = temporaryNumber;
+                if (box_2num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_2.tag = "Box_1";
@@ -166,10 +166,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 2:
-                box_3num = b;
-                if (box_3num == b)
+                box_3num = temporaryNumber;
+                if (box_3num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_3.tag = "Box_1";
@@ -213,10 +213,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 3:
-                box_4num = b;
-                if (box_4num == b)
+                box_4num = temporaryNumber;
+                if (box_4num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_4.tag = "Box_1";
@@ -260,10 +260,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 4:
-                box_5num = b;
-                if (box_5num == b)
+                box_5num = temporaryNumber;
+                if (box_5num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_5.tag = "Box_1";
@@ -307,10 +307,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 5:
-                box_6num = b;
-                if (box_6num == b)
+                box_6num = temporaryNumber;
+                if (box_6num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_6.tag = "Box_1";
@@ -354,10 +354,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 6:
-                box_7num = b;
-                if (box_7num == b)
+                box_7num = temporaryNumber;
+                if (box_7num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_7.tag = "Box_1";
@@ -401,10 +401,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 7:
-                box_8num = b;
-                if (box_8num == b)
+                box_8num = temporaryNumber;
+                if (box_8num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_8.tag = "Box_1";
@@ -448,10 +448,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 8:
-                box_9num = b;
-                if (box_9num == b)
+                box_9num = temporaryNumber;
+                if (box_9num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_9.tag = "Box_1";
@@ -495,10 +495,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 9:
-                box_10num = b;
-                if (box_10num == b)
+                box_10num = temporaryNumber;
+                if (box_10num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_10.tag = "Box_1";
@@ -542,10 +542,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 10:
-                box_11num = b;
-                if (box_11num == b)
+                box_11num = temporaryNumber;
+                if (box_11num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_11.tag = "Box_1";
@@ -589,10 +589,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 11:
-                box_12num = b;
-                if (box_12num == b)
+                box_12num = temporaryNumber;
+                if (box_12num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_12.tag = "Box_1";
@@ -636,10 +636,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 12:
-                box_13num = b;
-                if (box_13num == b)
+                box_13num = temporaryNumber;
+                if (box_13num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_13.tag = "Box_1";
@@ -683,10 +683,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 13:
-                box_14num = b;
-                if (box_14num == b)
+                box_14num = temporaryNumber;
+                if (box_14num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_14.tag = "Box_1";
@@ -730,10 +730,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 14:
-                box_15num = b;
-                if (box_15num == b)
+                box_15num = temporaryNumber;
+                if (box_15num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_15.tag = "Box_1";
@@ -777,10 +777,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 15:
-                box_16num = b;
-                if (box_16num == b)
+                box_16num = temporaryNumber;
+                if (box_16num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_16.tag = "Box_1";
@@ -824,10 +824,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 16:
-                box_17num = b;
-                if (box_17num == b)
+                box_17num = temporaryNumber;
+                if (box_17num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_17.tag = "Box_1";
@@ -871,10 +871,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 17:
-                box_18num = b;
-                if (box_18num == b)
+                box_18num = temporaryNumber;
+                if (box_18num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_18.tag = "Box_1";
@@ -918,10 +918,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 18:
-                box_19num = b;
-                if (box_19num == b)
+                box_19num = temporaryNumber;
+                if (box_19num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_19.tag = "Box_1";
@@ -965,10 +965,10 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
             case 19:
-                box_20num = b;
-                if (box_20num == b)
+                box_20num = temporaryNumber;
+                if (box_20num == temporaryNumber)
                 {
-                    switch (b)
+                    switch (temporaryNumber)
                     {
                         case 0:
                             box_20.tag = "Box_1";
