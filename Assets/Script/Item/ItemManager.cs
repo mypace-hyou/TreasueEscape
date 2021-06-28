@@ -47,32 +47,27 @@ public class ItemManager : MonoBehaviour
     [SerializeField] int box_20num = -1;
 
     public int BoxNumber = 0;
-    private int list = 12;
+    private int list = 11;
     int b;
-    List<float> boxNumList = new List<float>();
+    /// <summary>アイテムを表示させるボックスナンバーを入れるList</summary>
+    public List<float> boxNumList = new List<float>();
 
     private void Awake()
     {
         instance = this;
-        for (b = 0; b <= list;)
+        for (b = 0; b < list;)
         {
             BoxNumber = Random.Range(0, 20);
             bool ch = boxNumList.Contains(BoxNumber);
             if (!ch)
             {
                 boxNumList.Add(BoxNumber);
-                //SlotGrit slot = GetComponent<SlotGrit>();
-                //slot.BoxNumberList.Add(BoxNumber);
                 Bn();
                 b++;
             }
         }
     }
-    void Start()
-    {
-        
-    }
-    void Bn()
+    public void Bn()
     {
         switch (BoxNumber)
         {
@@ -96,23 +91,18 @@ public class ItemManager : MonoBehaviour
                             break;
                         case 4:
                             box_1.tag = "Box_5";
-                            
                             break;
                         case 5:
                             box_1.tag = "Box_6";
-                            
                             break;
                         case 6:
                             box_1.tag = "Box_7";
-                            
                             break;
                         case 7:
                             box_1.tag = "Box_8";
-                            
                             break;
                         case 8:
                             box_1.tag = "Box_9";
-                            
                             break;
                         case 9:
                             box_1.tag = "Box_10";

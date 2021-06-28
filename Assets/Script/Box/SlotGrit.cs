@@ -6,18 +6,17 @@ public class SlotGrit : MonoBehaviour
 {
     [SerializeField]
     private GameObject slotPrefab;
-    
-    private int slotNumber = 28;//初期のボックス内に表示するスロットの数
-    List<int> itemHaveLiet = new List<int>();
+    /// <summary>初期のボックス内に表示するスロットの数</summary>
+    private int slotNumber = 28;
+    /// <summary>インベントリーのどこに表示させるナンバーを入れるList</summary>
+    public List<int> inventoryLiet = new List<int>();
 
     [SerializeField]
     private Item[] allItems;
-    private int ItemImageNum = 0;
-    //GameObject slotObj;
-    //Slot slot;
-
+    /// <summary></summary>
+    private int boxItemNum = 0;
+    ///// <summary>アイテムを表示させるボックスナンバーを入れるList</summary>
     public List<int> BoxNumberList = new List<int>();
-    List<Item> ImageList = new List<Item>();
     [SerializeField] GameObject player;
     PlayerControl pc;
     public bool HitBox = false;
@@ -30,11 +29,10 @@ public class SlotGrit : MonoBehaviour
     {
         for (int i = 0; i < 11;)//ボックス事に表示する場所を決める
         {
-            int ran = Random.Range(0, 20);
+            int ran = Random.Range(0, 11);
             bool ch = BoxNumberList.Contains(ran);
             if (!ch)
             {
-                Debug.Log(ran);
                 BoxNumberList.Add(ran);
                 i++;
             }
@@ -42,78 +40,64 @@ public class SlotGrit : MonoBehaviour
         for (int i = 0; i < 11;)//どこに生成させる場所を決める
         {
             int ran = Random.Range(0, 29);
-            bool ch = itemHaveLiet.Contains(ran);
+            bool ch = inventoryLiet.Contains(ran);
             if (!ch)
             {
-                itemHaveLiet.Add(ran);
+                inventoryLiet.Add(ran);
                 i++;
-            }
-        }
-        for (int i = 0; i < slotNumber; i++)
-        {
-            //スロット生成
-            GameObject slotObj = Instantiate(slotPrefab, this.transform);
-            //アイテム生成
-            Slot slot = slotObj.GetComponent<Slot>();
-
-            bool jg = itemHaveLiet.Contains(i);
-            if (jg && ItemImageNum < allItems.Length)
-            {
-                //アイテムセット
-                slot.SetItem(allItems[ItemImageNum]);
-                ImageList.Add(allItems[ItemImageNum]);
-                ItemImageNum++;
-            }
-            else
-            {
-                slot.SetItem(null);
-                ImageList.Add(null);
             }
         }
         //ボックスごとに表示が違う
     }
-    void Update()
+    public void BoxInventory()
     {
-        //if (HitBox == true)
-        //{
-        //    BoxInventory();
-        //}
-    }
-    public 
-    void BoxInventory()
-    {
+        if (HitBox == true)
+        {
+            foreach (Transform childTransform in this.gameObject.transform)
+            {
+                Destroy(childTransform.gameObject);
+                HitBox = false;
+                //ItemImageNum = 0;
+            }
+        }
         //ボックスの番号が一致したら特定のアイテムだけを表示させる
-        //ボックスの番号が一致しなかったらnullを返す
+        //ボックスの番号が一致しなかったらnullを返すF
+        if (pc.te != -1)
+        {
+            boxItemNum = BoxNumberList[pc.te];
+        }
+        int inventoryNum = inventoryLiet[boxItemNum];
         bool ch = BoxNumberList.Contains(pc.te);
         if (ch)
         {
             for (int i = 0; i < slotNumber; i++)
             {
+                //スロット生成
+                GameObject slotObj = Instantiate(slotPrefab, this.transform);
                 //アイテム生成
-                Slot slot = FindObjectOfType<Slot>();
-                bool jg = itemHaveLiet.Contains(i);
-                if (jg && ItemImageNum < allItems.Length && ItemImageNum == pc.te)
+                Slot slot = slotObj.GetComponent<Slot>();
+                bool jg = inventoryLiet.Contains(i);
+                if (jg && i == inventoryNum/* && ItemImageNum < allItems.Length*/)
                 {
                     //アイテムセット
-                    slot.SetItem(allItems[ItemImageNum]);
+                    slot.SetItem(allItems[boxItemNum]);
                 }
                 else
                 {
                     slot.SetItem(null);
-                    ItemImageNum++;
                 }
             }
-            HitBox = false;
         }
         else
         {
             for (int i = 0; i < slotNumber; i++)
             {
+                //スロット生成
+                GameObject slotObj = Instantiate(slotPrefab, this.transform);
                 //アイテム生成
-                Slot slot = FindObjectOfType<Slot>();
+                Slot slot = slotObj.GetComponent<Slot>();
                 slot.SetItem(null);
             }
-            HitBox = false;
         }
         
     }

@@ -96,6 +96,7 @@ public class playerUI : MonoBehaviour
             ItemUI_Ch = true;
             pm.mouse_O();
             slotGrit.HitBox = true;
+            slotGrit.BoxInventory();
         }
         else if (Input.GetKeyDown("space") && boxOC && hit == 1)
         {

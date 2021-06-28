@@ -89,12 +89,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3346b62614ffc4944a5d69ea65145baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  box_1: {fileID: 0}
+  box_1num: -1
+  box_2: {fileID: 0}
+  box_2num: -1
+  box_3: {fileID: 0}
+  box_3num: -1
+  box_4: {fileID: 0}
+  box_4num: -1
+  box_5: {fileID: 0}
+  box_5num: -1
+  box_6: {fileID: 0}
+  box_6num: -1
+  box_7: {fileID: 0}
+  box_7num: -1
+  box_8: {fileID: 0}
+  box_8num: -1
+  box_9: {fileID: 0}
+  box_9num: -1
+  box_10: {fileID: 0}
+  box_10num: -1
+  box_11: {fileID: 0}
+  box_11num: -1
+  box_12: {fileID: 0}
+  box_12num: -1
+  box_13: {fileID: 0}
+  box_13num: -1
+  box_14: {fileID: 0}
+  box_14num: -1
+  box_15: {fileID: 0}
+  box_15num: -1
+  box_16: {fileID: 0}
+  box_16num: -1
+  box_17: {fileID: 0}
+  box_17num: -1
+  box_18: {fileID: 0}
+  box_18num: -1
+  box_19: {fileID: 0}
+  box_19num: -1
+  box_20: {fileID: 0}
+  box_20num: -1
+  BoxNumber: 0
+  boxNumList: []
   slotPrefab: {fileID: 2219591801237725444, guid: 56943ef2a6fcace46903e7f8dce2ee54,
     type: 3}
   allItems:
   - {fileID: 11400000, guid: 3a12fbd1749ac8441b73691ef73beb54, type: 2}
   - {fileID: 11400000, guid: 5a09fce8cbf4cb8428673d5f72cd5526, type: 2}
   - {fileID: 11400000, guid: 8e723b107d2e30c4abeba234f0f82cd9, type: 2}
+  - {fileID: 11400000, guid: 801a1157b3718104fa2057814ebd80ff, type: 2}
+  - {fileID: 11400000, guid: 0ddc2cb1020f2564d92930817ec161fe, type: 2}
+  - {fileID: 11400000, guid: 15a8395c776610e4bba9f2e1d53d5fba, type: 2}
+  - {fileID: 11400000, guid: 749002339e18f5f49931ba7746725ec5, type: 2}
+  - {fileID: 11400000, guid: b4e905311d1349940ad3089992b34c44, type: 2}
+  - {fileID: 11400000, guid: 8341887bce771ec4a81f9dea58c2bd2b, type: 2}
+  - {fileID: 11400000, guid: b0400eb163038c345a3121e4dbf9cdfe, type: 2}
+  - {fileID: 11400000, guid: a5bde3fdb0ba2024d989fe658648b5b8, type: 2}
+  player: {fileID: 0}
+  HitBox: 0
 --- !u!114 &5747621859839911224
 MonoBehaviour:
   m_ObjectHideFlags: 0

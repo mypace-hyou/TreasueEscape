@@ -85,17 +85,13 @@ public class PlayerControl : MonoBehaviour
         {
             te = 9;
         }
-        if (other.gameObject.tag == "Box_11")
+        if (other.gameObject.tag == "KeyBox")
         {
             te = 10;
         }
-        if (other.gameObject.tag == "KeyBox")
-        {
-            te = 11;
-        }
         if (other.gameObject.tag == "Box_fake")
         {
-            te = 12;
+            te = -1;
         }
     }
 }
