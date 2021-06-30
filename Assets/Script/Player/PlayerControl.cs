@@ -16,6 +16,7 @@ public class PlayerControl : MonoBehaviour
     public int keyNumber;
     public int ItemNumber;
     gamemanager gm;
+    List<int> itemHaveNumberList = new List<int>();
     public int MyAtk
     {
         get
@@ -34,13 +35,15 @@ public class PlayerControl : MonoBehaviour
     public void SetItem(Item item)
     {
         MyItem = item;
-        if (MyItem.RarityNumber == 0)
+        bool have = itemHaveNumberList.Contains(MyItem.haveListNumber);
+        if (!have && MyItem.RarityNumber == 0)
         {
+            itemHaveNumberList.Add(MyItem.haveListNumber);
             gm.ItemCh++;
         }
         if ("key" == MyItem.MyItamName)
         {
-            gm.gateCH = true;
+            gm.keyHaveCH = true;
         }
     }
     private void OnTriggerEnter(Collider other)

@@ -10,11 +10,11 @@ public class Item : ScriptableObject
     [SerializeField]
     private Sprite itemImage;
     [SerializeField]
-    private int Rarity;
-    gamemanager gm;
+    private int itemNumber;
     int num;
     //立ち絵の変更するときは戻す(set => itamName = value;　を付ける)
     public string MyItamName { get => itamName;}
     public Sprite MyItemImage { get => itemImage; }
-    public int RarityNumber { get => num; set => num = value; }
+    public int RarityNumber { get => num;}
+    public int haveListNumber { get => itemNumber; }
 }

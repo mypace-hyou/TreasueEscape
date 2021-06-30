@@ -23,7 +23,7 @@ public class keyDoorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space") && isNear)
+        if (Input.GetKeyDown("space") && isNear && gm.keyHaveCH)
         {
             animator.SetBool("Open", !animator.GetBool("Open"));
             gm.goleCH = true;
@@ -31,7 +31,7 @@ public class keyDoorScript : MonoBehaviour
     }
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Player"/* && gm.goleCH*/)
+        if (col.gameObject.tag == "Player")
         {
             isNear = true;
         }

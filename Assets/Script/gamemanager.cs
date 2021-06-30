@@ -13,15 +13,15 @@ public class gamemanager : MonoBehaviour
     public Text Timetext;
     public float time;
     public int ItemCh;
-    public bool itemCH = false;
-    public bool gateCH = false;
+    /// <summary>鍵を持っているか</summary>
+    public bool keyHaveCH = false;
+    /// <summary>ゴールできる条件がそろったか</summary>
     public bool goleCH = false;
-    public int ran;
     // Start is called before the first frame update
     void Start()
     {
         instanc = this;
-        time = 60;
+        time = 100;
         playerControl = itemBag.GetComponent<PlayerControl>();
     }
 
@@ -29,20 +29,12 @@ public class gamemanager : MonoBehaviour
     void Update()
     {
         Timetext.text ="残り時間" +time.ToString("F0");
-        //time -= Time.deltaTime;
-        if (ItemCh < 5)
-        {
-            itemCH = false;
-        }
-        else if (ItemCh >= 5)
-        {
-            itemCH = true;
-        } 
+        time -= Time.deltaTime;
         if (time <= 0)
         {
             O_GameScene();
         }
-        if (itemCH == true && gateCH == true && goleCH == true)
+        if (keyHaveCH == true && goleCH == true)
         {
             C_GameScene();
         }
