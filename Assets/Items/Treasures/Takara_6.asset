@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itamName: takara_6
   itemImage: {fileID: 21300000, guid: f0c0aedb262554b808856b0e95134e85, type: 3}
-  Rarity: 0
+  itemNumber: 5
