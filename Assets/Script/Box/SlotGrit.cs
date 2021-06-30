@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SlotGrit : MonoBehaviour
 {
+    private Item item;
+    public Item MyItem { get => item; private set => item = value; }
     [SerializeField]
     private GameObject slotPrefab;
     /// <summary>初期のボックス内に表示するスロットの数</summary>
@@ -57,7 +59,6 @@ public class SlotGrit : MonoBehaviour
             {
                 Destroy(childTransform.gameObject);
                 HitBox = false;
-                //ItemImageNum = 0;
             }
         }
         //ボックスの番号が一致したら特定のアイテムだけを表示させる
@@ -77,7 +78,7 @@ public class SlotGrit : MonoBehaviour
                 //アイテム生成
                 Slot slot = slotObj.GetComponent<Slot>();
                 bool jg = inventoryLiet.Contains(i);
-                if (jg && i == inventoryNum/* && ItemImageNum < allItems.Length*/)
+                if (jg && i == inventoryNum)
                 {
                     //アイテムセット
                     slot.SetItem(allItems[boxItemNum]);
@@ -101,5 +102,4 @@ public class SlotGrit : MonoBehaviour
         }
         
     }
-
 }

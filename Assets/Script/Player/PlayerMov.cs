@@ -86,11 +86,4 @@ public class PlayerMov : MonoBehaviour
         m_moveDirection.y -= gravity * Time.deltaTime;
         m_control.Move(m_moveDirection * speed * Time.deltaTime);
     }
-    //void OnTriggerEnter(Collider col)
-    //{
-    //    if (col.gameObject.tag == "Gate")
-    //    {
-    //        Gm.keyHaveCH = true;
-    //    }
-    //}
 }
