@@ -62,7 +62,7 @@ public class SlotGrit : MonoBehaviour
             }
         }
         //ボックスの番号が一致したら特定のアイテムだけを表示させる
-        //ボックスの番号が一致しなかったらnullを返すF
+        //ボックスの番号が一致しなかったらnullを返す
         if (pc.te != -1)
         {
             boxItemNum = BoxNumberList[pc.te];
