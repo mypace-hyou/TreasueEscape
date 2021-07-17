@@ -29,7 +29,7 @@ public class gamemanager : MonoBehaviour
     void Update()
     {
         Timetext.text ="残り時間" +time.ToString("F0");
-        time -= Time.deltaTime;
+        //time -= Time.deltaTime;
         if (time <= 0)
         {
             O_GameScene();

@@ -8,8 +8,10 @@ public class SlotGrit : MonoBehaviour
     public Item MyItem { get => item; private set => item = value; }
     [SerializeField]
     private GameObject slotPrefab;
+    [SerializeField]
+    private GameObject dummySlotPrefab;
     /// <summary>初期のボックス内に表示するスロットの数</summary>
-    private int slotNumber = 28;
+    [SerializeField]private int slotNumber = 24;
     /// <summary>インベントリーのどこに表示させるナンバーを入れるList</summary>
     public List<int> inventoryLiet = new List<int>();
 
@@ -41,7 +43,7 @@ public class SlotGrit : MonoBehaviour
         }
         for (int i = 0; i < 11;)//どこに生成させる場所を決める
         {
-            int ran = Random.Range(0, 29);
+            int ran = Random.Range(0, 23);
             bool ch = inventoryLiet.Contains(ran);
             if (!ch)
             {
@@ -72,20 +74,21 @@ public class SlotGrit : MonoBehaviour
         if (ch)
         {
             for (int i = 0; i < slotNumber; i++)
-            {
-                //スロット生成
-                GameObject slotObj = Instantiate(slotPrefab, this.transform);
-                //アイテム生成
-                Slot slot = slotObj.GetComponent<Slot>();
+            { 
                 bool jg = inventoryLiet.Contains(i);
                 if (jg && i == inventoryNum)
                 {
+                    //スロット生成
+                    GameObject slotObj = Instantiate(slotPrefab, this.transform);
+                    //アイテム生成
+                    Slot slot = slotObj.GetComponent<Slot>();
                     //アイテムセット
                     slot.SetItem(allItems[boxItemNum]);
                 }
                 else
                 {
-                    slot.SetItem(null);
+                    //スロット生成
+                    Instantiate(dummySlotPrefab, this.transform);
                 }
             }
         }
@@ -94,10 +97,7 @@ public class SlotGrit : MonoBehaviour
             for (int i = 0; i < slotNumber; i++)
             {
                 //スロット生成
-                GameObject slotObj = Instantiate(slotPrefab, this.transform);
-                //アイテム生成
-                Slot slot = slotObj.GetComponent<Slot>();
-                slot.SetItem(null);
+                Instantiate(dummySlotPrefab, this.transform);
             }
         }
         
