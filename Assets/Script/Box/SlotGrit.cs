@@ -19,8 +19,10 @@ public class SlotGrit : MonoBehaviour
     private Item[] allItems;
     /// <summary></summary>
     private int boxItemNum = 0;
-    ///// <summary>アイテムを表示させるボックスナンバーを入れるList</summary>
+    /// <summary>アイテムを表示させるボックスナンバーを入れるList</summary>
     public List<int> BoxNumberList = new List<int>();
+    /// <summary>全お宝の数</summary>
+    [SerializeField] int totalTreasures;
     [SerializeField] GameObject player;
     PlayerControl pc;
     public bool HitBox = false;
@@ -33,7 +35,7 @@ public class SlotGrit : MonoBehaviour
     {
         for (int i = 0; i < 11;)//ボックス事に表示する場所を決める
         {
-            int ran = Random.Range(0, 11);
+            int ran = Random.Range(0, totalTreasures);
             bool ch = BoxNumberList.Contains(ran);
             if (!ch)
             {
