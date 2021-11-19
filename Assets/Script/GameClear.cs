@@ -11,6 +11,8 @@ public class GameClear : MonoBehaviour
     int count = 0;
     public GameObject button;
     PlayerMov pm;
+    public float minutes;
+    public float secondsot;
     // Start is called before the first frame update
     void Start()
     {
@@ -84,6 +86,8 @@ public class GameClear : MonoBehaviour
                 break;
             case 17:
                 button.SetActive(true);
+                minutes = gamemanager.StaticMinutes;
+                secondsot = gamemanager.StaticSeconds;
                 break;
             default:
                 break;
