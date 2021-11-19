@@ -55,7 +55,7 @@ public class ItemManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        for (temporaryNumber = 0; temporaryNumber < 11;)
+        for (temporaryNumber = 0; temporaryNumber <= 11;)
         {
             boxNumber = Random.Range(0, 20);
             bool ch = boxNumList.Contains(boxNumber);

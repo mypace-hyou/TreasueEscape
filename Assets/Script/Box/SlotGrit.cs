@@ -11,7 +11,7 @@ public class SlotGrit : MonoBehaviour
     [SerializeField]
     private GameObject dummySlotPrefab;
     /// <summary>初期のボックス内に表示するスロットの数</summary>
-    [SerializeField]private int slotNumber = 24;
+    [SerializeField]private int slotNumber = 18;
     /// <summary>インベントリーのどこに表示させるナンバーを入れるList</summary>
     public List<int> inventoryLiet = new List<int>();
 
@@ -45,7 +45,7 @@ public class SlotGrit : MonoBehaviour
         }
         for (int i = 0; i < 11;)//どこに生成させる場所を決める
         {
-            int ran = Random.Range(0, 23);
+            int ran = Random.Range(0, 17);
             bool ch = inventoryLiet.Contains(ran);
             if (!ch)
             {
@@ -66,7 +66,6 @@ public class SlotGrit : MonoBehaviour
             }
         }
         //ボックスの番号が一致したら特定のアイテムだけを表示させる
-        //ボックスの番号が一致しなかったらnullを返す
         if (pc.te != -1)
         {
             boxItemNum = BoxNumberList[pc.te];
