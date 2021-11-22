@@ -10,6 +10,7 @@ public class playerUI : MonoBehaviour
     [SerializeField] public bool boxUI, boxOC;
     [SerializeField] private bool ItemUI_Ch;
     [SerializeField] private GameObject ItemBox;
+    PlayerMov pm;
     public bool Havekey;
     public float boxRd;
     public float boxTe;
@@ -18,6 +19,7 @@ public class playerUI : MonoBehaviour
     public GameObject TextUI;
     public GameObject itemFolderUI;
     SlotGrit slotGrit;
+    PlayerControl PC;
     void Start()
     {
         Havekey = false;
@@ -27,6 +29,7 @@ public class playerUI : MonoBehaviour
         hit = 0;
         slotGrit = FindObjectOfType<SlotGrit>();
         Player_mov = GameObject.Find("Player");
+        pm = FindObjectOfType<PlayerMov>();
     }
     void Update()
     {
@@ -56,10 +59,12 @@ public class playerUI : MonoBehaviour
         if (ItemUI_Ch == true)
         {
             box_tr();
+            pm.mouse_O();
         }
         else if (ItemUI_Ch == false)
         {
             box_fa();
+            pm.mouse_C();
         }
     }
     public void box_fa()
@@ -113,7 +118,7 @@ public class playerUI : MonoBehaviour
         }
         else if (!boxOC)
         {
-            pm.speed = 6;
+            pm.speed = 3;
             Item_ch();
             outBox();
         }

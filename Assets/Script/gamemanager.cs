@@ -20,8 +20,8 @@ public class gamemanager : MonoBehaviour
     public bool goleCH = false;
     public bool gameStartCh = false;
 
-    public static float StaticMinutes;
-    public static float StaticSeconds;
+    public static int StaticMinutes;
+    public static int StaticSeconds;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,8 +46,8 @@ public class gamemanager : MonoBehaviour
             if (keyHaveCH == true && goleCH == true)
             {
                 gameStartCh = false;
-                StaticMinutes = minutes;
-                StaticSeconds = time;
+                StaticMinutes = (int)minutes;
+                StaticSeconds = (int)time;
                 C_GameScene();
             }
         }

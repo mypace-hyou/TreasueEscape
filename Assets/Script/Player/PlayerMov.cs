@@ -24,7 +24,7 @@ public class PlayerMov : MonoBehaviour
     private Vector3 m_moveDirection;
     private Vector3 m_camRotation;
 
-    public float speed = 6;
+    public float speed = 3;
     public float jumpSpeed = 1.5f;
     public float gravity = 0.5f;
 
@@ -50,6 +50,14 @@ public class PlayerMov : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            mouse_O();
+        }
+        if (Cursor.visible == true && Input.GetMouseButtonDown(0))
+        {
+            mouse_C();
+        }
         if (player_Ui.boxOC == false)
         {
             Rotate();
