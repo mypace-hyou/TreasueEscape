@@ -1894,6 +1894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dafabb8033de09743a2c74a2f298c045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 0}
   atk: 100
 --- !u!4 &254875649
 Transform:
@@ -11266,7 +11267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eebb36beb5e4ef14d891faa72d59dfe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: []
   Player_mov: {fileID: 0}
   hit: 0
   doorUI: 0
@@ -11275,10 +11275,8 @@ MonoBehaviour:
   ItemUI_Ch: 0
   ItemBox: {fileID: 186990682}
   Havekey: 0
-  boxRd: 0
   boxTe: 0
   player_Item: {fileID: 3616465577390989993}
-  box_Item: {fileID: 186990682}
   TextUI: {fileID: 9156210405966804854}
   itemFolderUI: {fileID: 2098664322}
 --- !u!143 &3616465577390989995
@@ -11312,9 +11310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   te: 0
-  atk: 0
-  keyNumber: 0
-  ItemNumber: 0
+  keyNum: 0
 --- !u!114 &3616465577390989997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11336,13 +11332,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   speed: 3
-  jumpSpeed: 1.5
   gravity: 0.5
   minAngle: -30
   maxAngle: 45
   sensitivity: 200
   Game_m: {fileID: 4547940744745319468}
-  ch: 0
 --- !u!4 &3616465577390989999
 Transform:
   m_ObjectHideFlags: 0
