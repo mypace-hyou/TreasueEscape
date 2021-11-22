@@ -11,8 +11,9 @@ public class GameClear : MonoBehaviour
     int count = 0;
     public GameObject button;
     PlayerMov pm;
-    public float minutes;
-    public float secondsot;
+    public int minutes;
+    public int secondsot;
+    public Text Timetext;
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +89,7 @@ public class GameClear : MonoBehaviour
                 button.SetActive(true);
                 minutes = gamemanager.StaticMinutes;
                 secondsot = gamemanager.StaticSeconds;
+                Timetext.text = "クリアタイム" + minutes + "分" + secondsot + "秒";
                 break;
             default:
                 break;
