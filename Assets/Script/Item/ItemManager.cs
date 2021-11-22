@@ -5,47 +5,87 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     public static ItemManager instance { get; private set; }
+    /// <summary>ボックス1</summary>
     [SerializeField] GameObject box_1;
+    /// <summary>ボックスの変数1</summary>
     [SerializeField] int box_1num = -1;
+    /// <summary>ボックス2</summary>
     [SerializeField] GameObject box_2;
+    /// <summary>ボックスの変数2</summary>
     [SerializeField] int box_2num = -1;
+    /// <summary>ボックス3</summary>
     [SerializeField] GameObject box_3;
+    /// <summary>ボックスの変数3</summary>
     [SerializeField] int box_3num = -1;
+    /// <summary>ボックス4</summary>
     [SerializeField] GameObject box_4;
+    /// <summary>ボックスの変数4</summary>
     [SerializeField] int box_4num = -1;
+    /// <summary>ボックス5</summary>
     [SerializeField] GameObject box_5;
+    /// <summary>ボックスの変数5</summary>
     [SerializeField] int box_5num = -1;
+    /// <summary>ボックス6</summary>
     [SerializeField] GameObject box_6;
+    /// <summary>ボックスの変数6</summary>
     [SerializeField] int box_6num = -1;
+    /// <summary>ボックス7</summary>
     [SerializeField] GameObject box_7;
+    /// <summary>ボックスの変数7</summary>
     [SerializeField] int box_7num = -1;
+    /// <summary>ボックス8</summary>
     [SerializeField] GameObject box_8;
+    /// <summary>ボックスの変数8</summary>
     [SerializeField] int box_8num = -1;
+    /// <summary>ボックス9</summary>
     [SerializeField] GameObject box_9;
+    /// <summary>ボックスの変数9</summary>
     [SerializeField] int box_9num = -1;
+    /// <summary>ボックス10</summary>
     [SerializeField] GameObject box_10;
+    /// <summary>ボックスの変数10</summary>
     [SerializeField] int box_10num = -1;
+    /// <summary>ボックス11</summary>
     [SerializeField] GameObject box_11;
+    /// <summary>ボックスの変数11</summary>
     [SerializeField] int box_11num = -1;
+    /// <summary>ボックス12</summary>
     [SerializeField] GameObject box_12;
+    /// <summary>ボックスの変数12</summary>
     [SerializeField] int box_12num = -1;
+    /// <summary>ボックス13</summary>
     [SerializeField] GameObject box_13;
+    /// <summary>ボックスの変数13</summary>
     [SerializeField] int box_13num = -1;
+    /// <summary>ボックス14</summary>
     [SerializeField] GameObject box_14;
+    /// <summary>ボックスの変数14</summary>
     [SerializeField] int box_14num = -1;
+    /// <summary>ボックス15</summary>
     [SerializeField] GameObject box_15;
+    /// <summary>ボックスの変数15</summary>
     [SerializeField] int box_15num = -1;
+    /// <summary>ボックス16</summary>
     [SerializeField] GameObject box_16;
+    /// <summary>ボックスの変数16</summary>
     [SerializeField] int box_16num = -1;
+    /// <summary>ボックス17</summary>
     [SerializeField] GameObject box_17;
+    /// <summary>ボックスの変数17</summary>
     [SerializeField] int box_17num = -1;
+    /// <summary>ボックス18</summary>
     [SerializeField] GameObject box_18;
+    /// <summary>ボックスの変数18</summary>
     [SerializeField] int box_18num = -1;
+    /// <summary>ボックス19</summary>
     [SerializeField] GameObject box_19;
+    /// <summary>ボックスの変数19</summary>
     [SerializeField] int box_19num = -1;
+    /// <summary>ボックス20</summary>
     [SerializeField] GameObject box_20;
+    /// <summary>ボックスの変数20</summary>
     [SerializeField] int box_20num = -1;
-
+    /// <summary>ボックスの変数を仮置き</summary>
     public int boxNumber = 0;
     /// <summary>変数の仮置き</summary>
     int temporaryNumber;
@@ -55,7 +95,7 @@ public class ItemManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        for (temporaryNumber = 0; temporaryNumber < 11;)
+        for (temporaryNumber = 0; temporaryNumber <= 11;)
         {
             boxNumber = Random.Range(0, 20);
             bool ch = boxNumList.Contains(boxNumber);

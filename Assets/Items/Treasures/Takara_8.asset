@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Takara_8
   m_EditorClassIdentifier: 
   itamName: takara_8
-  itemImage: {fileID: 21300000, guid: b0065894f927747ac9a7008c2b251bfb, type: 3}
+  itemImage: {fileID: 21300000, guid: b9ffb39cde8d74f74a2ce746ce500fba, type: 3}
   itemNumber: 7

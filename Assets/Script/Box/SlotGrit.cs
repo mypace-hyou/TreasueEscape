@@ -6,21 +6,25 @@ public class SlotGrit : MonoBehaviour
 {
     private Item item;
     public Item MyItem { get => item; private set => item = value; }
+    /// <summary>アイテムを入れるための空のオブジェクト</summary>
     [SerializeField]
     private GameObject slotPrefab;
+    /// <summary>アイテムを入れないのダミーオブジェクト</summary>
     [SerializeField]
     private GameObject dummySlotPrefab;
     /// <summary>初期のボックス内に表示するスロットの数</summary>
-    [SerializeField]private int slotNumber = 24;
+    [SerializeField]private int slotNumber = 18;
     /// <summary>インベントリーのどこに表示させるナンバーを入れるList</summary>
     public List<int> inventoryLiet = new List<int>();
-
+    /// <summary>全てのアイテム保管</summary>
     [SerializeField]
     private Item[] allItems;
-    /// <summary></summary>
+    /// <summary>ボックス内のどこに表示するか番号</summary>
     private int boxItemNum = 0;
-    ///// <summary>アイテムを表示させるボックスナンバーを入れるList</summary>
+    /// <summary>アイテムを表示させるボックスナンバーを入れるList</summary>
     public List<int> BoxNumberList = new List<int>();
+    /// <summary>全お宝の数</summary>
+    [SerializeField] int totalTreasures;
     [SerializeField] GameObject player;
     PlayerControl pc;
     public bool HitBox = false;
@@ -33,7 +37,7 @@ public class SlotGrit : MonoBehaviour
     {
         for (int i = 0; i < 11;)//ボックス事に表示する場所を決める
         {
-            int ran = Random.Range(0, 11);
+            int ran = Random.Range(0, totalTreasures);
             bool ch = BoxNumberList.Contains(ran);
             if (!ch)
             {
@@ -43,7 +47,7 @@ public class SlotGrit : MonoBehaviour
         }
         for (int i = 0; i < 11;)//どこに生成させる場所を決める
         {
-            int ran = Random.Range(0, 23);
+            int ran = Random.Range(0, 17);
             bool ch = inventoryLiet.Contains(ran);
             if (!ch)
             {
@@ -64,7 +68,6 @@ public class SlotGrit : MonoBehaviour
             }
         }
         //ボックスの番号が一致したら特定のアイテムだけを表示させる
-        //ボックスの番号が一致しなかったらnullを返す
         if (pc.te != -1)
         {
             boxItemNum = BoxNumberList[pc.te];

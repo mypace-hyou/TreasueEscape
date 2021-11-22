@@ -23,9 +23,9 @@ public class PlayerMov : MonoBehaviour
 
     private Vector3 m_moveDirection;
     private Vector3 m_camRotation;
-
-    public float speed = 6;
-    public float jumpSpeed = 1.5f;
+    /// <summary>プレイヤースピード</summary>
+    public float speed = 3;
+    /// <summary>重力</summary>
     public float gravity = 0.5f;
 
     /// <summary>下に向くことのできる最小角度</summary>
@@ -37,11 +37,12 @@ public class PlayerMov : MonoBehaviour
     /// <summary>マウスの感度</summary>
     [Range(50, 500)]
     public int sensitivity = 200;
+    /// <summary>プレイヤーUIスクリプト</summary>
     playerUI player_Ui;
-
+    /// <summary>ゲームマネージャーを取得</summary>
     public GameObject Game_m;
-     gamemanager Gm;
-    public bool ch;
+    /// <summary>ゲームマネージャー</summary>
+    gamemanager Gm;
     void Start()
     {
         mouse_C();
@@ -50,6 +51,14 @@ public class PlayerMov : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            mouse_O();
+        }
+        if (Cursor.visible == true && Input.GetMouseButtonDown(0))
+        {
+            mouse_C();
+        }
         if (player_Ui.boxOC == false)
         {
             Rotate();

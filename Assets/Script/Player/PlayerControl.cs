@@ -5,27 +5,28 @@ using UnityEngine.EventSystems;
 
 public class PlayerControl : MonoBehaviour
 {
+    /// <summary>どのボックスに当たったか</summary>
     public int te;
-
+    /// <summary>アイテムスクリプトを入れる</summary>
     private Item item;
     public Item MyItem { get => item; private set => item = value; }
     private key key;
     public key MyKey { get => key; private set => key = value; }
     [SerializeField]
-    private int atk;
-    public int keyNumber;
-    public int ItemNumber;
+    /// <summary>return用の変数</summary>
+    private int keyNum;
     gamemanager gm;
+    /// <summary>持っているitemのリスト</summary>
     List<int> itemHaveNumberList = new List<int>();
-    public int MyAtk
+    public int Myitem
     {
         get
         {
             key key = MyKey as key;
 
-            int itemAtk = 0;
-            if (key != null) itemAtk = MyKey.Key;
-            return atk + itemAtk;
+            int itemKey = 0;
+            if (key != null) itemKey = MyKey.Key;
+            return keyNum + itemKey;
         }
     }
     void Awake()

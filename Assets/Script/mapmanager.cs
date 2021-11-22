@@ -5,7 +5,9 @@ using UnityEngine;
 public class mapmanager : MonoBehaviour
 {
     [Header("プレイヤーのスポンポイント")]
+    /// <summary>スポンポイントを入れる</summary>
     public GameObject PlayerSponPoint;
+    /// <summary>スポンポイントのポジション保持</summary>
     public Vector3 psp;
 
     public GameObject Player;
