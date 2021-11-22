@@ -6,18 +6,20 @@ public class SlotGrit : MonoBehaviour
 {
     private Item item;
     public Item MyItem { get => item; private set => item = value; }
+    /// <summary>アイテムを入れるための空のオブジェクト</summary>
     [SerializeField]
     private GameObject slotPrefab;
+    /// <summary>アイテムを入れないのダミーオブジェクト</summary>
     [SerializeField]
     private GameObject dummySlotPrefab;
     /// <summary>初期のボックス内に表示するスロットの数</summary>
     [SerializeField]private int slotNumber = 18;
     /// <summary>インベントリーのどこに表示させるナンバーを入れるList</summary>
     public List<int> inventoryLiet = new List<int>();
-
+    /// <summary>全てのアイテム保管</summary>
     [SerializeField]
     private Item[] allItems;
-    /// <summary></summary>
+    /// <summary>ボックス内のどこに表示するか番号</summary>
     private int boxItemNum = 0;
     /// <summary>アイテムを表示させるボックスナンバーを入れるList</summary>
     public List<int> BoxNumberList = new List<int>();

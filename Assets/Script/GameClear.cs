@@ -6,13 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class GameClear : MonoBehaviour
 {
+    /// <summary></summary>
     public Text text;
+    /// <summary>演出用タイム</summary>
     float time = 1;
+    /// <summary>演出に伴うカウント</summary>
     int count = 0;
+    /// <summary>シーン切り替えようのボタン</summary>
     public GameObject button;
     PlayerMov pm;
+    /// <summary>分を入れる</summary>
     public int minutes;
+    /// <summary>秒を入れる</summary>
     public int secondsot;
+    /// <summary>経過時間を表示するtext</summary>
     public Text Timetext;
     // Start is called before the first frame update
     void Start()

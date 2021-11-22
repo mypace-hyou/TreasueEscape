@@ -3,22 +3,31 @@ using UnityEngine.UI;
 
 public class playerUI : MonoBehaviour
 {
-    public GameObject[] test;
+    /// <summary>プレイヤーを入れる</summary>
     [SerializeField] GameObject Player_mov;
+    /// <summary>プレイヤーが当たった物の判定</summary>
     [SerializeField] int hit;
+    /// <summary>ドアに当たった判定</summary>
     [SerializeField] private bool doorUI;
+    /// <summary>プレイヤーのアイテムを保持</summary>
     [SerializeField] public bool boxUI, boxOC;
+    /// <summary>プレイヤーのアイテムを保持</summary>
     [SerializeField] private bool ItemUI_Ch;
+    /// <summary>ボックスのUIを保持</summary>
     [SerializeField] private GameObject ItemBox;
     PlayerMov pm;
+    /// <summary>プレイヤーがカギを持っているか</summary>
     public bool Havekey;
-    public float boxRd;
+    /// <summary>プレイヤーがどのボックスに当たったかどうか</summary>
     public float boxTe;
+    /// <summary>プレイヤーの情報取得</summary>
     public GameObject player_Item;
-    public GameObject box_Item;
+    /// <summary>プレイヤーサポートテキスト</summary>
     public GameObject TextUI;
+    /// <summary>プレイヤーのアイテムを保持</summary>
     public GameObject itemFolderUI;
     SlotGrit slotGrit;
+    /// <summary>プレイヤーコントロースを保管</summary>
     PlayerControl PC;
     void Start()
     {

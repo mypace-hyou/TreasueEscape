@@ -5,14 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="Items",menuName ="Items/item")]
 public class Item : ScriptableObject
 {
+    /// <summary>アイテムの名前</summary>
     [SerializeField]
     private string itamName;
+    /// <summary>アイテムの画像</summary>
     [SerializeField]
     private Sprite itemImage;
+    /// <summary>アイテムナンバー</summary>
     [SerializeField]
     private int itemNumber;
     int num;
-    //立ち絵の変更するときは戻す(set => itamName = value;　を付ける)
     public string MyItamName { get => itamName;}
     public Sprite MyItemImage { get => itemImage; }
     public int RarityNumber { get => num;}
